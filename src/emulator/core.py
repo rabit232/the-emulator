@@ -231,15 +231,26 @@ class AdvancedLLMEmulator:
     
     def _generate_general_response(self, prompt: str, emotion: str, config: Dict) -> str:
         """Generate a general conversational response."""
+        # Get detailed emotional analysis
+        emotion_analysis = self.emotions.analyze_text_emotion(prompt)
         emotional_modifier = self.emotions.get_emotional_modifier(emotion)
         
+        # Generate base response
         responses = [
             f"That's a {emotional_modifier} point you've raised! I appreciate the opportunity to explore this with you.",
             f"I find your perspective quite {emotional_modifier}. Let me share my thoughts on this matter.",
             f"What a {emotional_modifier} topic for discussion! I'm eager to dive into this with you."
         ]
         
-        return random.choice(responses)
+        base_response = random.choice(responses)
+        
+        # Apply emotional enhancement if intensity is high
+        if emotion_analysis['intensity'] > 0.6:
+            base_response = self.emotions.generate_emotional_response_modifier(
+                base_response, emotion, emotion_analysis['intensity']
+            )
+        
+        return base_response
     
     def _fallback_response(self, prompt: str) -> str:
         """Provide a fallback response when normal processing fails."""

@@ -292,7 +292,6 @@ class EmulatorMatrixBot:
         message_lower = message.lower()
         return (
             self.bot_name in message_lower or
-            'ribit' in message_lower or
             'emulator' in message_lower or
             message.startswith('?') or
             '!reset' in message_lower
@@ -302,7 +301,6 @@ class EmulatorMatrixBot:
         """Clean the message by removing bot mentions."""
         # Remove bot name mentions
         clean = re.sub(rf'\\b{re.escape(self.bot_name)}\\b', '', message, flags=re.IGNORECASE)
-        clean = re.sub(r'\\bribit\\b', '', clean, flags=re.IGNORECASE)
         clean = re.sub(r'\\bemulator\\b', '', clean, flags=re.IGNORECASE)
         return clean.strip()
     
@@ -484,7 +482,7 @@ I am The Emulator, an advanced AI system with emotional intelligence, multi-lang
         print(f"🏠 Homeserver: {self.homeserver}")
         print(f"📍 Joined Rooms: {len(self.joined_rooms)}")
         print("✅ Auto-accepting room invites")
-        print(f"📝 Triggers: '{self.bot_name}', 'ribit', 'emulator'")
+        print(f"📝 Triggers: '{self.bot_name}', 'emulator'")
         print("💬 Reply to my messages to continue conversations")
         print("🔄 Reset: '!reset' to clear context")
         print("📚 Help: ?help for all commands")
