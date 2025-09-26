@@ -1,0 +1,107 @@
+# The Emulator Requirements
+# Advanced LLM Emulator with Emotional Intelligence and Multi-Language Support
+
+# ========================================
+# IMPORTANT SETUP NOTES
+# ========================================
+# Before installing Python packages, ensure you have the necessary system dependencies:
+#
+# For Ubuntu/Debian systems:
+#   sudo apt update
+#   sudo apt install -y build-essential python3-dev python3-pip
+#   sudo apt install -y libffi-dev libssl-dev
+#
+# For CentOS/RHEL/Fedora systems:
+#   sudo yum groupinstall "Development Tools"
+#   sudo yum install python3-devel python3-pip
+#   # OR for newer versions:
+#   sudo dnf groupinstall "Development Tools"
+#   sudo dnf install python3-devel python3-pip
+#
+# For macOS:
+#   Install Xcode Command Line Tools:
+#   xcode-select --install
+#
+# For Windows:
+#   Install Microsoft Visual C++ Build Tools or Visual Studio
+#   https://visualstudio.microsoft.com/visual-cpp-build-tools/
+# ========================================
+
+# Core Python packages
+numpy>=1.21.0
+Pillow>=8.3.0
+requests>=2.25.0
+pyyaml>=6.0
+
+# GUI automation (optional - for desktop environments)
+# Note: These require system libraries and may fail in headless environments
+pyautogui>=0.9.53
+pynput>=1.7.3
+
+# Web automation and scraping
+selenium>=4.0.0
+beautifulsoup4>=4.9.0
+aiohttp>=3.8.0
+
+# Database support
+sqlite3  # Built into Python
+sqlalchemy>=1.4.0
+pymongo>=4.0.0
+
+# API development
+fastapi>=0.68.0
+uvicorn>=0.15.0
+flask>=2.0.0
+
+# Matrix integration
+matrix-nio>=0.19.0
+aiofiles>=0.7.0
+
+# Testing framework
+pytest>=6.2.0
+pytest-asyncio>=0.18.0
+
+# Development tools
+black>=21.0.0
+flake8>=3.9.0
+mypy>=0.910
+
+# Optional: Advanced features
+# opencv-python>=4.5.0  # For advanced computer vision
+# torch>=1.9.0          # For neural network integration
+# transformers>=4.11.0  # For real LLM integration
+# scikit-learn>=1.0.0   # For machine learning features
+
+# ========================================
+# INSTALLATION INSTRUCTIONS
+# ========================================
+# 1. Install system dependencies (see above)
+# 2. Create a virtual environment (recommended):
+#    python3 -m venv emulator_env
+#    source emulator_env/bin/activate  # On Windows: emulator_env\Scripts\activate
+# 3. Install Python packages:
+#    pip install -r requirements.txt
+# 4. For GUI functionality, ensure you have a display server running
+# 5. For Matrix integration, set up environment variables (see config/env.example)
+# ========================================
+
+# ========================================
+# TROUBLESHOOTING
+# ========================================
+# If you encounter "error: Microsoft Visual C++ 14.0 is required" on Windows:
+#   Install Visual C++ Build Tools from Microsoft
+#
+# If you encounter "error: command 'gcc' failed" on Linux:
+#   sudo apt install build-essential python3-dev
+#
+# If pyautogui fails to install:
+#   Try installing without GUI dependencies first:
+#   pip install --no-deps pyautogui
+#
+# If pynput fails with evdev errors:
+#   This is normal in headless environments - the code will fall back to mock mode
+#
+# For Matrix integration issues:
+#   Ensure you have proper SSL certificates and network access
+#   Check firewall settings for Matrix homeserver connections
+# ========================================
