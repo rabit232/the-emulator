@@ -47,6 +47,19 @@ pip install -r requirements.txt
 python examples/basic_usage.py
 ```
 
+### Matrix Bot Setup
+
+```bash
+# Copy environment template
+cp .env.example .env
+
+# Edit .env with your Matrix credentials
+# MATRIX_PASSWORD=your_password_here
+
+# Run the Matrix bot
+python run_matrix_bot.py
+```
+
 ### Basic Usage
 
 ```python
